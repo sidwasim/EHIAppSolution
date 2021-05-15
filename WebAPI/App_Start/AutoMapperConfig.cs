@@ -10,14 +10,6 @@ namespace WebAPI.App_Start
 {
     public class AutoMapperConfig : Profile
     {
-        //public static void Initialize()
-        //{
-        //    var config = new MapperConfiguration(cfg => {
-        //        cfg.CreateMap<ContactViewModelRequest, ContactRequest>();
-        //    });
-         
-        //}
-
         public static IMapper Mapper { get; set; }
         public static void RegisterProfiles()
         {           
