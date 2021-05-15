@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/2fdf5ca8-a320-4932-8940-ab1e29aae0c3/resourceGroups/EHIRG/providers/Microsoft.Web/sites/EhiWebApp",
+    "appService.deploySubpath": "dist\\app-ehicClient"
+}

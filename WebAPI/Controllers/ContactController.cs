@@ -1,4 +1,5 @@
-﻿using Ehi.Services.Contract.External.DataContracts.Request;
+﻿using AutoMapper;
+using Ehi.Services.Contract.External.DataContracts.Request;
 using Ehi.Services.Contract.External.ServiceContracts;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,9 +11,11 @@ namespace WebAPI.Controllers
 {
     public class ContactController : ApiController
     {
-        private readonly IContactManager _contactManger;       
-        public ContactController(IContactManager contactManger)
+        private readonly IContactManager _contactManger;
+        private readonly IMapper _mapper;
+        public ContactController(IContactManager contactManger, IMapper mapper)
         {
+            _mapper = mapper;
             _contactManger = contactManger;
         }
         // GET: api/Contact
@@ -36,6 +39,8 @@ namespace WebAPI.Controllers
             return response;
         }
 
+
+
         // GET: api/Contact/5
         public string Get(int id)
         {
@@ -43,7 +48,8 @@ namespace WebAPI.Controllers
             //return data.SaveData();
             return "aaa";
 
-        }
+        }     
+
 
         // POST: api/Contact
         public async Task<bool> PostAsync([FromBody]ContactViewModelRequest request)
@@ -54,8 +60,11 @@ namespace WebAPI.Controllers
                 LastName = request.LastName,
                 Email = request.Email,
                 PhoneNumber = request.PhoneNumber
-                , IsActive = request.IsActive
+                ,
+                IsActive = request.IsActive
             };
+            //autommaper
+            //var obj = _mapper.Map<ContactViewModelRequest, ContactRequest>(request);
             return await _contactManger.AddContacts(sevRequest);
         }
 
@@ -71,6 +80,8 @@ namespace WebAPI.Controllers
                 IsActive = request.IsActive,
                 Id = request.Id
             };
+
+            //var obj = _mapper.Map<ContactViewModelRequest, ContactRequest>(request);
             return await _contactManger.UpdateContacts(id, sevRequest);
 
         }

@@ -50,11 +50,16 @@
       <div class="col-xs-12">Employee Name </div>
       <div class="col-xs-9">{{ model.firstName }} {{ model.lastName}}</div>
     </div> 
+    <br>
     <div class="row">
       <div class="col-xs-3">Phone Number</div>
       <div class="col-xs-9">{{ model.phoneNumber }}</div>
     </div>
     <br>
-    <!-- <button class="btn btn-primary" (click)="submitted=false">Edit</button> -->
+    
+    <button class="btn btn-success" style="margin-bottom: 10px;" routerLink="/contacts">Go To Contact Info Page</button>
+    <br>
+    
+    <button class="btn btn-primary" (click)="submitted=false">Edit Record</button>
   </div>
 <p></p>

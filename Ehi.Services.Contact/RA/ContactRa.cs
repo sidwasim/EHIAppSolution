@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Ehi.Services.ContactRA
@@ -46,6 +45,10 @@ namespace Ehi.Services.ContactRA
                 using (var ctx = new ContactContext())
                 {
                     var values = ctx.Contact.Where(c => c.Id == empId).FirstOrDefault();
+                    if (values == null)
+                    {
+                        return false;
+                    }
                     ctx.Contact.Remove(values);
                     await ctx.SaveChangesAsync();
                     return true;
@@ -62,6 +65,7 @@ namespace Ehi.Services.ContactRA
             var contactResponses = new List<ContactResponse>();
             using (var ctx = new ContactContext())
             {
+                //paging implementation take 10 at one request
                 var data =  ctx.Contact.Where(p => p.IsActive).Select(a => a).ToList();
 
                 if(data != null)

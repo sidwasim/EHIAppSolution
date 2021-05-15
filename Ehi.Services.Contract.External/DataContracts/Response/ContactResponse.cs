@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ehi.Services.Contract.External.DataContracts.Response
+﻿namespace Ehi.Services.Contract.External.DataContracts.Response
 {
     public class ContactResponse
     {

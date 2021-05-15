@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ehi.Services.Contract.External.DataContracts.Request
+﻿namespace Ehi.Services.Contract.External.DataContracts.Request
 {
     public class ContactRequest
     {

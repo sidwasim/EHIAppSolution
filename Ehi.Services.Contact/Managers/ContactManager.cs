@@ -2,10 +2,7 @@
 using Ehi.Services.Contract.External.DataContracts.Response;
 using Ehi.Services.Contract.External.ServiceContracts;
 using Ehi.Services.Contract.Internal.ServiceContracts;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Ehi.Services.Contact.Managers

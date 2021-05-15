@@ -2,7 +2,7 @@ import { Component, OnInit , Input} from '@angular/core';
 import contact from '../shared/models/contact';
 import contactservice from '../shared/services/contact.service';
 import { Router, ActivatedRoute} from '@angular/router';
-import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-contact-new',
   templateUrl: './contact-new.component.html',
@@ -13,15 +13,14 @@ export class ContactNewComponent implements OnInit {
   constructor(private contactInfoService: contactservice, private route: ActivatedRoute) { }
   submitted = false;
   btnName = 'ADD Employee';
+  IsSuccess = true;
 model = new contact();
   ngOnInit() {
     const data =  this.contactInfoService.getData();
-    if (data != null && data.id > 0)
-    {
+    if (data != null && data.id > 0) {
       this.btnName = 'UPDATE Employee';
       this.model = data;
-    }
-    else {
+    } else {
     this.btnName = 'ADD Employee';
     }
   }
@@ -34,13 +33,17 @@ model = new contact();
 
 
   onSubmit() {
-    this.saveContactInfo();
-    this.submitted = true;
+     this.saveContactInfo();
+     this.submitted = true;
   }
 
-  newHero() {
+  reset() {
     this.model = new contact();
+    this.model.firstName = null;
+    this.model.lastName = null;
+    this.  IsSuccess = true;
   }
+
 
   private saveContactInfo(): void {
     const request = {
@@ -56,7 +59,8 @@ model = new contact();
     }
 
     this.contactInfoService.save(request).subscribe(obj => {
-      let response = obj;
+     const response = obj;
+     this.IsSuccess = false;
     });
   }
 }

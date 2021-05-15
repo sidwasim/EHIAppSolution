@@ -4,7 +4,7 @@ namespace Ehi.Services.Contact.RA.Models
 {
     public class ContactContext : DbContext
     {
-        public ContactContext() : base("ContactDBConn1")
+        public ContactContext() : base("name=ContactConn")
         {
 
         }
