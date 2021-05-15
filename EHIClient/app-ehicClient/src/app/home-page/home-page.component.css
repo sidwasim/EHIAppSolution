@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+}
+
+/* not needed for centering only for demo note */
+.note {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  top: 0;
+  max-width: 400px;
+  border: 1px dotted #bbb;
+}
+
+/* .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  max-width: 1320px;
+} */

@@ -1,0 +1,33 @@
+<p></p>
+<div class="container">
+  <h1>Employee Infomation</h1>
+<kendo-grid [data]="gridItems" [pageSize]="pageSize" [skip]="skip" [pageable]="true"
+(pageChange)="pageChange($event)" 
+[sortable]="true" [sort]="sortDescriptor" (sortChange)="handleSortChange($event)"
+ 
+  >
+  <kendo-grid-column field="Id" title="ID" width="50">
+  </kendo-grid-column>
+  <kendo-grid-column field="FirstName" title="First Name" > 
+  </kendo-grid-column>
+  <kendo-grid-column field="LastName" title="Last Name" >
+  </kendo-grid-column>
+  <kendo-grid-column field="PhoneNumber" title="Phone Number"  format="{0:c}">
+  </kendo-grid-column>
+  <kendo-grid-column field="Email" title="Email ID"  format="{0:c}">
+  </kendo-grid-column>
+  <kendo-grid-column field="IsActive" filter="boolean" width="80">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <input type="checkbox" [checked]="dataItem.IsActive" (click)="markInActive(dataItem)"  />
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column  width="150">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button type="submit" class="btn btn-outline-info" (click)="updateContactInfo(dataItem)">Update</button>
+      
+      <button style="margin-left: 10px;" type="submit"class="btn btn-outline-danger"  (click)="deletedata(dataItem)">Delete</button>
+    </ng-template>
+  </kendo-grid-column>
+  
+</kendo-grid>
+</div>
